@@ -22,6 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action(
+	'init',
+	function () {
+		load_plugin_textdomain( 'go-to-post-id', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
+);
+
+add_action(
 	'admin_bar_menu',
 	function ( WP_Admin_Bar $wp_admin_bar ) {
 		if ( current_user_can( 'edit_posts' ) ) {
@@ -29,7 +36,11 @@ add_action(
 				[
 					'id'    => 'go-to-post-id',
 					'title' => '<form action="' . esc_attr( admin_url( 'post.php' ) ) . '">'
-						. '<input type="text" name="post" placeholder="Go to Post ID" style="padding: 0 4px; min-height: 24px; height: 24px; width: 80px" />'
+						. '<input type="text" name="post" placeholder="'
+						. esc_attr( _x( 'Go to Post ID', 'input-placeholder', 'go-to-post-id' ) )
+						. '" style="padding: 0 4px; min-height: 24px; height: 24px; width: '
+						. intval( _x( '80', 'input-width-in-px', 'go-to-post-id' ) )
+						. 'px" />'
 						. '<input type="hidden" name="action" value="edit" />'
 						. '</form>',
 				]
