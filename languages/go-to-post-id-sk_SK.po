@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Go to Post ID 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/go-to-post-id\n"
+"Last-Translator: Matej Kravjar <translation@wp.kravjar.sk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-12T23:43:55+02:00\n"
+"PO-Revision-Date: 2025-08-13 12:59+0200\n"
+"Language: sk\n"
+"X-Generator: Poedit 3.6\n"
+"X-Domain: go-to-post-id\n"
+
+#. Plugin Name of the plugin
+#: go-to-post-id.php
+msgid "Go to Post ID"
+msgstr "Prejdi na ID postu"
+
+#. Description of the plugin
+#: go-to-post-id.php
+msgid "Αdds little search box into admin bar that redirects you to edit page of post of given ID. Enter the post ID and hit return to go to post edit screen—if the post exists. If it doesn't, you get a standard WordPress error page—just hit back and try again."
+msgstr "Pridá malé vyhľadávacie políčko do administračnej lišty, ktoré ťa po zadaní ID presmeruje používateľa na stránku úpravy daného postu. Zadaj ID postu a stlač enter na presmerovanie na stránku úpravy daného postu – v prípade, že post s daným ID existuje. Ak neexistuje, dostaneš štandardnú chybovú WordPress hlášku – stačí prejsť späť a skúsiť znova."
+
+#. Author of the plugin
+#: go-to-post-id.php
+msgid "Matej Kravjar"
+msgstr ""
+
+#: go-to-post-id.php:45
+msgctxt "input-placeholder"
+msgid "Go to Post ID"
+msgstr "Prejdi na ID postu"
+
+#: go-to-post-id.php:47
+msgctxt "input-width-in-px"
+msgid "80"
+msgstr "105"
+
+#. Plugin URI of the plugin
+#: go-to-post-id.php
+msgid "https://github.com/kravco/go-to-post-id"
+msgstr ""
+
+#. Author URI of the plugin
+#: go-to-post-id.php
+msgid "https://buymeacoffee.com/kravco"
+msgstr ""
