@@ -1,0 +1,24 @@
+{
+	"landingPage": "/wp-admin/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "6.8"
+	},
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org\/plugins",
+				"slug": "go-to-post-id"
+			},
+			"options": {
+				"activate": true
+			}
+		}
+	]
+}
