@@ -39,12 +39,12 @@ msgstr ""
 msgid "https://buymeacoffee.com/kravco"
 msgstr ""
 
-#: go-to-post-id.php:45
+#: go-to-post-id.php:47
 msgctxt "input-placeholder"
 msgid "Go to Post ID"
 msgstr ""
 
-#: go-to-post-id.php:47
+#: go-to-post-id.php:49
 msgctxt "input-width-in-px"
 msgid "80"
 msgstr ""

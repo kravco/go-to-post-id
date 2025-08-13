@@ -24,6 +24,9 @@ Either the post with given ID does not exist or post ID contains some invalid an
 
 == Changelog ==
 
+= 1.1 =
+* Enable wordpress.org translations on the plugin
+
 = 1.0 =
 * Fix readme, update links and tested-up-to version
 * Apply quality control jobs to plugin code

@@ -12,8 +12,10 @@
  * Description: Αdds little search box into admin bar that redirects you to edit page of post of given ID. Enter the post ID and hit return to go to post edit screen—if the post exists. If it doesn't, you get a standard WordPress error page—just hit back and try again.
  * Author: Matej Kravjar
  * Author URI: https://buymeacoffee.com/kravco
- * Version: 1.0
+ * Version: 1.1
  * License: GPLv2+
+ * Text Domain: go-to-post-id
+ * Domain Path: /languages
  */
 
 // protect against direct access.
@@ -21,12 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action(
-	'init',
-	function () {
-		load_plugin_textdomain( 'go-to-post-id', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-	}
-);
 
 add_action(
 	'admin_bar_menu',
@@ -44,7 +40,7 @@ add_action(
 						. '<input type="text" name="post" placeholder="'
 						. esc_attr( _x( 'Go to Post ID', 'input-placeholder', 'go-to-post-id' ) )
 						. '" style="padding: 0 4px; min-height: 24px; height: 24px; width: '
-						. intval( _x( '80', 'input-width-in-px', 'go-to-post-id' ) )
+						. esc_attr( _x( '80', 'input-width-in-px', 'go-to-post-id' ) )
 						. 'px" />'
 						. '<input type="hidden" name="action" value="edit" />'
 						. '</form>',
