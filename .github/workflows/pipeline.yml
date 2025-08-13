@@ -1,0 +1,40 @@
+name: Pipeline
+run-name: ${{ github.actor }} is running the pipeline
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [7.4, 8.4]
+    name: Check syntax for PHP ${{ matrix.php }}
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v4
+      - name: PHP setup
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - name: Syntax check
+        run: jobs/php-syntax.sh
+  test:
+    name: Code standards + Static Analysis + Translation Updates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v4
+      - name: PHP Syntax
+        run: jobs/php-syntax.sh
+      - name: Composer Install
+        uses: php-actions/composer@v6
+        with:
+          args: --no-scripts
+      - name: Code Standards
+        run: jobs/code-standards.sh
+      - name: Static Analysis
+        run: jobs/static-analysis.sh
+      - name: Translation Updates
+        run: jobs/update-translations.sh && git diff --exit-code
