@@ -8,11 +8,11 @@
  * @license GPLv2+
  *
  * Plugin Name: Go to Post ID
- * Plugin URI: https://wp.kravjar.sk/?plugin=go-to-post-id
+ * Plugin URI: https://github.com/kravco/go-to-post-id
  * Description: Αdds little search box into admin bar that redirects you to edit page of post of given ID. Enter the post ID and hit return to go to post edit screen—if the post exists. If it doesn't, you get a standard WordPress error page—just hit back and try again.
  * Author: Matej Kravjar
- * Author URI: https://matej.kravjar.sk
- * Version: 0.2
+ * Author URI: https://buymeacoffee.com/kravco
+ * Version: 1.0
  * License: GPLv2+
  */
 
