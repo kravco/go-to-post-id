@@ -34,7 +34,7 @@ add_action(
 				[
 					'id'    => 'go-to-post-id',
 					'title' => '<form action="' . esc_attr( admin_url( 'post.php' ) ) . '">'
-						. '<input type="text" name="post" placeholder="Go to Post ID" style="width: 100px; height: 20px; padding: 0 4px" />'
+						. '<input type="text" name="post" placeholder="Go to Post ID" style="padding: 0 4px; min-height: 24px; height: 24px; width: 80px" />'
 						. '<input type="hidden" name="action" value="edit" />'
 						. '</form>',
 				]
