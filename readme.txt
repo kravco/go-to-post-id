@@ -5,7 +5,7 @@ Tags: post, ease-of-access
 Requires PHP: 7.4
 Requires at least: 4.4
 Tested up to: 6.8
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,7 @@ Either the post with given ID does not exist or post ID contains some invalid an
 
 = 1.1 =
 * Enable wordpress.org translations on the plugin
+* Do not crash if requirements are not met
 
 = 1.0 =
 * Fix readme, update links and tested-up-to version
