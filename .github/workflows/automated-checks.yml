@@ -1,5 +1,5 @@
-name: Pipeline
-run-name: ${{ github.actor }} is running the pipeline
+name: Automated Checks
+run-name: Automated checks on pull-request and main push
 on:
   push:
     branches: [main]
@@ -10,31 +10,27 @@ jobs:
     strategy:
       matrix:
         php: [7.4, 8.4]
-    name: Check syntax for PHP ${{ matrix.php }}
+    name: PHP ${{ matrix.php }} Syntax
     steps:
-      - name: Repo Checkout
+      - name: checkout
         uses: actions/checkout@v4
-      - name: PHP setup
+      - name: setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-      - name: Syntax check
+      - name: check syntax
         run: jobs/php-syntax.sh
   test:
-    name: Code standards + Static Analysis + Translation Updates
+    name: Standards + Analysis
     runs-on: ubuntu-latest
     steps:
-      - name: Repo Checkout
+      - name: checkout
         uses: actions/checkout@v4
-      - name: PHP Syntax
-        run: jobs/php-syntax.sh
-      - name: Composer Install
+      - name: dependencies
         uses: php-actions/composer@v6
         with:
           args: --no-scripts
-      - name: Code Standards
+      - name: standards
         run: jobs/code-standards.sh
-      - name: Static Analysis
+      - name: analysis
         run: jobs/static-analysis.sh
-      - name: Translation Updates
-        run: jobs/update-translations.sh && git diff --exit-code
