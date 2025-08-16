@@ -20,12 +20,12 @@ jobs:
         run: jobs/plugin-archive.sh
       - name: changelog
         id: changelog
-        #TODO escape dots in tag names (so they do not match anything)
         run: |
           echo "Generating changelog for tag $GITHUB_REF_NAME"
+          escaped_tag=$( echo "$GITHUB_REF_NAME" | sed 's/\./\\&/g' )
           changelog="$(
             sed -n '/^== Changelog ==/,/^==/p' readme.txt \
-            | sed -n "/^= $GITHUB_REF_NAME =/,/^=/p" \
+            | sed -n "/^= $escaped_tag =/,/^=/p" \
             | sed '/^\(=\|$\)/d'
           )"
           echo "Parsed changelog:"
