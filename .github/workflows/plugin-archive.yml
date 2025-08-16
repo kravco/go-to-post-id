@@ -1,0 +1,41 @@
+name: Plugin Archive
+run-name: Generate plugin archive on tag push
+on:
+  push:
+    tags: ['*']
+permissions:
+  contents: write
+jobs:
+  generate:
+    name: Generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: dependencies
+        uses: php-actions/composer@v6
+        with:
+          args: --no-scripts
+      - name: archive
+        run: jobs/plugin-archive.sh
+      - name: changelog
+        id: changelog
+        #TODO escape dots in tag names (so they do not match anything)
+        run: |
+          echo "Generating changelog for tag $GITHUB_REF_NAME"
+          changelog="$(
+            sed -n '/^== Changelog ==/,/^==/p' readme.txt \
+            | sed -n "/^= $GITHUB_REF_NAME =/,/^=/p" \
+            | sed '/^\(=\|$\)/d'
+          )"
+          echo "Parsed changelog:"
+          echo "$changelog"
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          echo "$changelog" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          body: "${{ steps.changelog.outputs.content }}"
+          files: '*.zip'
