@@ -1,2 +1,4 @@
+/.distignore
 /*.zip
+/languages/
 /vendor/
